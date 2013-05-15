@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+	  <title>TMI - The Episcopal School of Texas</title>
+   	
+    <link rel="stylesheet" type="text/css" href="TMImobile.css">
+    <link rel="stylesheet" href="themes/TMImobile.min.css" />
+	  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile.structure-1.3.1.min.css" />
+    <script src="phonegap.js"></script>
+    <script type="text/javascript" src="js/TMImobile.js"></script>
+	  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	  <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+ 	
+</head>
+
+<body>
+
+<div data-role="page" data-theme="b">
+        <div data-role="header" data-theme="a" data-position="fixed">
+            <h1>TMI Mobile</h1>
+            <a href="index.html" data-icon="home" class="ui-btn-right">Home</a>
+
+        </div>
+        <div data-role="content" data-theme="a">        
+                        
+            
+<script>
+			
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.open("GET","https://cors.5apps.com/?uri=http://hosting.brownbearsw.com/TMIEpiscopal?CalendarName=TMI_Episcopal&Op=RSS&Format=rss&callback=?",false);
+xmlhttp.send();
+xmlDoc=xmlhttp.responseXML; 
+
+document.write("<ul data-role=\"listview\" data-inset=\"true\" data-dividertheme=\"b\">");
+var x=xmlDoc.getElementsByTagName("item");
+for (i=0;i<x.length;i++)
+  { 
+  document.write("<li>");
+  document.write(x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue);
+  document.write("<br />");
+  document.write(x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue);
+  document.write("</li>");
+  }
+document.write("</ul>");
+</script>            
+            
+        </div>
+        <div data-role="footer" data-theme="a" data-position="fixed">
+            <p class="footer-text">&copy; TMI &bull; (210) 698-7171</p>
+        </div>
+    </div>
+
+  
+</body>
+</html>
